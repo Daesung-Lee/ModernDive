@@ -47,7 +47,8 @@ ggplot(houses, aes(x = sqft_living, y = price, col = condition)) +
    geom_point(alpha = 0.4, size = 0.75) +
    scale_y_log10() +
    scale_x_log10() + 
-   labs(x = "Sq. feet living", y = "Price", col = "Condition") +
+   labs(x = "Sq. feet living", y = "Price", col = "Condition",
+        title = "Seattle Housing Prices \nby Square Feet of Living Space and Condition") +
    theme_minimal()
 
 # Price ~ bedrooms
