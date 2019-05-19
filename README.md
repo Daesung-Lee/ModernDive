@@ -1,9 +1,10 @@
-# ModernDive
-An exploration of the ModernDive Book Statistical Inference via Data Science by Chester Ismay and Albert Y. Kim
 
-## Housing Price Plot
+Seattle Housing Prices
+----------------------
 
-```{r}
+<img src="README_figs/README-unnamed-chunk-2-1.png" width="768" />
+
+``` r
 library(ggplot2)
 library(moderndive)
 houses <- house_prices
@@ -20,4 +21,3 @@ ggplot(houses, aes(x = grade, y = price)) +
    scale_y_log10() + 
    theme_minimal()
 ```
-![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/carstenstann/ModernDive/master/SeattleHousePriceBoxplot.png)
