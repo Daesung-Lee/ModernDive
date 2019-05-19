@@ -20,4 +20,4 @@ ggplot(houses, aes(x = grade, y = price)) +
    scale_y_log10() + 
    theme_minimal()
 ```
-![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/carstenstann/ModernDive/master/Seattle housing price by grade and condition.png)
+![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/carstenstann/ModernDive/master/SeattleHousePriceBoxplot.png)
