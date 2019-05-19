@@ -44,10 +44,11 @@ ggplot(houses, aes(x = sqft_living, y = price, col = condition)) +
    labs(x = "Sq. feet living", y = "Price")
 
 ggplot(houses, aes(x = sqft_living, y = price, col = condition)) +
-   geom_point(alpha = 0.6) +
-   labs(x = "Sq. feet living", y = "Price") + 
+   geom_point(alpha = 0.4, size = 0.75) +
    scale_y_log10() +
-   scale_x_log10()
+   scale_x_log10() + 
+   labs(x = "Sq. feet living", y = "Price", col = "Condition") +
+   theme_minimal()
 
 # Price ~ bedrooms
 ggplot(houses, aes(x = bedrooms, y = price, col = condition)) + 
@@ -60,10 +61,10 @@ ggplot(houses, aes(x = grade, y = price, col = condition)) +
    scale_y_log10()
 
 ggplot(houses, aes(x = grade, y = price)) +
-   geom_jitter(aes(col = condition), alpha = 0.3) +
-   geom_boxplot(aes(col = grade), 
+   geom_jitter(aes(col = condition), alpha = 0.3, size = 0.75) +
+   geom_boxplot(color = "gray40",
                 alpha = 0.01, 
-                lwd = .8,
+                lwd = .7,
                 fatten = .7,
                 outlier.shape = NA, 
                 show.legend = FALSE) +

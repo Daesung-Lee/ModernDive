@@ -4,19 +4,40 @@ output: rmarkdown::github_document
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(collapse=TRUE, comment="##", fig.retina=2, fig.path = "README_figs/README-")
-```
-
-## Seattle Housing Prices
-
-```{r echo = FALSE, fig.width = 8, fig.height = 6}
+library(dplyr)
 library(ggplot2)
 library(moderndive)
 houses <- house_prices
+```
+
+## House Sales in Seattle (King County)
+
+The Seattle House Sale data, which contains house sale prices for King County, which includes Seattle. It includes homes sold between May 2014 and May 2015 can be sourced on [kaggle.com](https://www.kaggle.com/harlfoxem/housesalesprediction).
+
+The following presents an exploratory analysis of the data.
+
+### The Data
+```{r}
+glimpse(houses)
+```
+
+```{r echo = FALSE, fig.width = 8, fig.height = 6}
+ggplot(houses, aes(x = sqft_living, y = price, col = condition)) +
+   geom_point(alpha = 0.4, size = 0.75) +
+   scale_y_log10() +
+   scale_x_log10() + 
+   labs(x = "Sq. feet living", y = "Price", col = "Condition") +
+   theme_minimal()
+```
+
+
+```{r echo = FALSE, fig.width = 8, fig.height = 6}
+houses <- house_prices
 ggplot(houses, aes(x = grade, y = price)) +
-   geom_jitter(aes(col = condition), alpha = 0.3) +
-   geom_boxplot(aes(col = grade), 
+   geom_jitter(aes(col = condition), alpha = 0.3, size = 0.75) +
+   geom_boxplot(color = "gray40",
                 alpha = 0.01, 
-                lwd = .8,
+                lwd = .7,
                 fatten = .7,
                 outlier.shape = NA, 
                 show.legend = FALSE) +
@@ -27,14 +48,11 @@ ggplot(houses, aes(x = grade, y = price)) +
 ```
 
 ```{r eval = FALSE}
-library(ggplot2)
-library(moderndive)
-houses <- house_prices
 ggplot(houses, aes(x = grade, y = price)) +
-   geom_jitter(aes(col = condition), alpha = 0.3) +
-   geom_boxplot(aes(col = grade), 
+   geom_jitter(aes(col = condition), alpha = 0.3, size = 0.75) +
+   geom_boxplot(color = "gray40",
                 alpha = 0.01, 
-                lwd = .8,
+                lwd = .7,
                 fatten = .7,
                 outlier.shape = NA, 
                 show.legend = FALSE) +
